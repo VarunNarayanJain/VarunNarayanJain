@@ -87,12 +87,18 @@ def write(name: str, theme: str, body: str) -> None:
 
 
 # --------------------------------------------------------------------------
-# banner: service name, status, and 90 days of activity as uptime bars
+# banner: service name, status, and the receipts
+#
+# This deliberately does NOT open with a contribution strip. Day-job pull
+# requests land on a separate work account, so this account's graph describes
+# almost none of the actual work -- and an empty graph in the first thing a
+# recruiter sees says "dead profile" far louder than no graph at all. The
+# receipts are things that are true regardless of which account committed.
 # --------------------------------------------------------------------------
 
 def banner(theme: str, prof: dict, days) -> str:
     c = THEMES[theme]
-    H, PAD = 168, 26
+    H, PAD = 158, 26
     p = [box(0.5, 0.5, W - 1, H - 1, fill=c["surf"], stroke=c["border"])]
 
     p.append(txt(PAD, 44, "svc/", size=21, fill=c["muted"], weight=600))
@@ -109,50 +115,19 @@ def banner(theme: str, prof: dict, days) -> str:
     p.append('<circle cx="%.1f" cy="40" r="3.5" fill="%s"/>' % (px + 15, c["ok"]))
     p.append(txt(px + 25, 44, label, size=11, fill=c["ok"], weight=600, spacing="0.09em"))
 
-    # Uptime bars. Height is that day's contributions against the window peak;
-    # colour follows the status-page convention, so a quiet day reads as an
-    # incident rather than quietly disappearing into the background.
-    window = days[-90:]
-    peak = max([v for _, v in window] + [1])
-    top, tall, gap = 92, 46, 2.0
-    n = len(window)
-    bw = (W - 2 * PAD - gap * (n - 1)) / n
-    total = sum(v for _, v in days)
-    base = top + tall + 20
+    # Receipts, as a row of stat cells. Four, because five stops being read.
+    cells = prof.get("receipts", [])[:4]
+    if cells:
+        top, ch = 92, 44
+        gap = 10
+        cw = (W - 2 * PAD - gap * (len(cells) - 1)) / len(cells)
+        for i, r in enumerate(cells):
+            x = PAD + i * (cw + gap)
+            p.append(box(x, top, cw, ch, fill=c["bg"], stroke=c["border"], r=4))
+            p.append(txt(x + 12, top + 22, r["headline"], size=17, fill=c["amber"], weight=600))
+            p.append(txt(x + 12, top + 36, r["label"], size=9.5, fill=c["muted"]))
 
-    # An all-zero window means either nothing was fetched or nothing was
-    # *attributed* -- see the warning in main(). Either way, 90 red bars would
-    # say something false about the person, so the empty state is flat, grey,
-    # and honest about being empty.
-    if sum(v for _, v in window) == 0:
-        for i in range(n):
-            p.append('<rect x="%.2f" y="%.2f" width="%.2f" height="6" rx="1" fill="%s"/>'
-                     % (PAD + i * (bw + gap), top + tall - 6, bw, c["grid"]))
-        p.append(txt(W / 2, base, "no public contributions in this window",
-                     size=10, fill=c["muted"], anchor="middle"))
-        return wrap(p, W, H, "%s, service banner" % prof["name"])
-
-    active = 0
-    for i, (_, v) in enumerate(window):
-        frac = v / peak
-        if v == 0:
-            h, fill = 6.0, c["grid"]
-        else:
-            active += 1
-            h = max(9.0, tall * (frac ** 0.55))
-            fill = c["ok"] if frac >= 0.6 else c["amber"]
-        p.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" rx="1" fill="%s"/>'
-                 % (PAD + i * (bw + gap), top + tall - h, bw, h, fill))
-
-    p.append(txt(PAD, base, "90 days ago", size=10, fill=c["muted"]))
-    win_total = sum(v for _, v in window)
-    mid = "%d contributions  ·  %d active day%s  ·  %s this year" % (
-        win_total, active, "" if active == 1 else "s", format(total, ","))
-    p.append(txt(W / 2, base, mid, size=10, fill=c["muted"], anchor="middle"))
-    p.append(txt(W - PAD, base, "today", size=10, fill=c["muted"], anchor="end"))
-
-    return wrap(p, W, H, "%s, service banner with 90 days of activity as uptime bars"
-                % prof["name"])
+    return wrap(p, W, H, "%s, service banner" % prof["name"])
 
 
 # --------------------------------------------------------------------------
@@ -373,11 +348,10 @@ def main() -> None:
 
     year_total = sum(v for _, v in days)
     if source != "empty" and year_total < 150:
-        print("  ! only %d contributions attributed in the last year." % year_total)
-        print("  ! repos here were pushed in months the graph shows as empty, which")
-        print("  ! means commits are authored with an email GitHub cannot match to")
-        print("  ! the account. Check: Settings > Emails, and git config user.email.")
-        print("  ! Also: Settings > Profile > include private contributions.")
+        print("  note: %d contributions attributed to this account in the last year."
+              % year_total)
+        print("  Day-job PRs sit on the separate work account, so this is expected.")
+        print("  The banner and /traces are built not to depend on it -- see banner().")
 
     ASSETS.mkdir(exist_ok=True)
     for theme in THEMES:

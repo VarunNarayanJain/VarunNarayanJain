@@ -137,25 +137,24 @@ retrieves per-student context and drafts intervention plans for counsellors.
 <!-- ============================================================================
      /traces is written and ready, but commented out on purpose.
 
-     GitHub currently attributes only 27 contributions to this account in the
-     last year, and zero in the last 90 days -- even though repos here were
-     pushed as recently as July 2026. That means commits are being authored
-     with an email GitHub cannot match to the account, so they earn no
-     contribution credit.
+     This account is the personal one. The day-job pull requests -- the 200+
+     reviewed and merged -- are on a separate account tied to the company
+     email, so they earn no contribution credit here. GitHub attributes 28
+     contributions to this account in the last year.
 
-     Shipping an empty calendar is worse than shipping no calendar. Fix the
-     attribution first:
+     A contribution graph that shows 28 when the real number is in the
+     hundreds does not under-sell the work, it actively misrepresents it. So
+     the profile leads with receipts that are true regardless of which account
+     committed: the metrics panels, the changelog, the deployments.
 
-       1. Settings > Emails -- add every email you commit with (the
-          noreply address is fine), and check `git config user.email`.
-       2. Settings > Profile -- tick "Include private contributions on my
-          profile", so SeedlingLabs work counts.
-       3. Add a PAT with read:user as secrets.METRICS_TOKEN, so the workflow
-          can read private contributions too.
+     The snake below is commented out for the same reason -- it animates this
+     graph, so it would animate an empty grid. .github/workflows/snake.yml is
+     ready and set to manual; run it from the Actions tab when this is worth
+     switching on.
 
-     Then delete this comment and the two markers below, and run
-     `python scripts/render.py` -- the panels fill in.
-     ============================================================================ -->
+     To switch both on later: delete this comment and the two markers below,
+     then run `python scripts/render.py`.
+          ============================================================================ -->
 
 <!--
 ## `GET` /traces

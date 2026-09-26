@@ -4,13 +4,13 @@ name: snake
 # rather than a live service: it runs on this repo's own runner and commits the
 # result to the output branch, so there is no request path to fall over.
 
+# Manual only, and not currently used by the README. The snake animates this
+# account's contribution graph, and the day-job commits live on a separate work
+# account -- so it would animate an almost empty grid. Kept because it is ready
+# to go the moment this account's graph is worth showing: run it from the
+# Actions tab, then uncomment the block in README.md.
 on:
-  schedule:
-    - cron: "17 2 * * *"
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths: [".github/workflows/snake.yml"]
 
 permissions:
   contents: write
