@@ -1,0 +1,45 @@
+name: redraw portrait
+
+# Separate from the panel refresh because this one needs Pillow and numpy, and
+# the portrait only changes when the source photograph does.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "assets/source-varun.jpg"
+      - "scripts/dotify.py"
+
+permissions:
+  contents: write
+
+jobs:
+  dotify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install --quiet pillow numpy
+
+      - name: Redraw the dot matrix
+        run: |
+          python scripts/dotify.py assets/source-varun.jpg \
+            -o assets/portrait \
+            --cols 104 --crop 0.18,0.03,0.80,0.72 --equalize --colour photo
+
+      - name: Commit if anything actually changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/portrait.svg
+          if git diff --quiet --staged; then
+            echo "portrait unchanged"
+          else
+            git commit -m "redraw portrait"
+            git push
+          fi

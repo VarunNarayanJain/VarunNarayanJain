@@ -1,0 +1,48 @@
+[
+  {
+    "group": "Backend & infrastructure",
+    "items": [
+      {"name": "Python", "prod": true},
+      {"name": "FastAPI", "prod": true},
+      {"name": "PostgreSQL \u00b7 RLS", "prod": true},
+      {"name": "Celery", "prod": true},
+      {"name": "Redis", "prod": true},
+      {"name": "SQLAlchemy", "prod": true},
+      {"name": "Docker", "prod": true},
+      {"name": "AWS \u00b7 S3 \u00b7 EC2 \u00b7 ECR", "prod": true},
+      {"name": "Terraform", "prod": false},
+      {"name": "Node \u00b7 Express", "prod": false},
+      {"name": "MongoDB", "prod": false}
+    ]
+  },
+  {
+    "group": "Observability",
+    "items": [
+      {"name": "Prometheus", "prod": true},
+      {"name": "Grafana", "prod": true},
+      {"name": "Loki", "prod": true},
+      {"name": "Per-call cost tracing", "prod": true}
+    ]
+  },
+  {
+    "group": "AI in a pipeline, not a notebook",
+    "items": [
+      {"name": "AWS Bedrock \u00b7 Claude", "prod": true},
+      {"name": "Groq", "prod": true},
+      {"name": "RAG pipelines", "prod": true},
+      {"name": "ChromaDB", "prod": true},
+      {"name": "LangChain", "prod": false},
+      {"name": "YOLOv8", "prod": false},
+      {"name": "OpenCV", "prod": false}
+    ]
+  },
+  {
+    "group": "Frontend, enough to ship the whole thing myself",
+    "items": [
+      {"name": "TypeScript", "prod": true},
+      {"name": "React", "prod": true},
+      {"name": "Next.js", "prod": true},
+      {"name": "Tailwind", "prod": true}
+    ]
+  }
+]

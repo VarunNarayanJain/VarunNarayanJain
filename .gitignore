@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+# local raster previews used when checking a panel's layout
+assets/_*.png

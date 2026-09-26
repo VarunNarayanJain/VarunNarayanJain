@@ -1,0 +1,23 @@
+{
+  "username": "VarunNarayanJain",
+  "name": "Varun Narayan Jain",
+  "service": "varun-narayan-jain",
+  "role": "Backend & infrastructure",
+  "location": "Bengaluru, IN",
+  "education": "B.Tech CSE '27, MUJ",
+  "status": "Open to 2027 new-grad backend / infra roles",
+  "blurb": "the pipelines that move data, the rules that decide who can see what, and the alerts that catch a problem before a customer does",
+  "now": "SWE Intern @ SeedlingLabs, Bengaluru",
+  "before": "SWE Intern @ Tata Advanced Systems",
+  "gpa": "9.07 / 10 - Dean's List x3",
+  "portrait_source": "assets/source-varun.jpg",
+  "portrait_crop": [0.18, 0.03, 0.80, 0.72],
+
+  "_comment": "An empty string means 'not supplied yet'. Those badges render nothing rather than pointing at a dead link a recruiter will click.",
+  "links": {
+    "email": "varunnarayanjaincorporate@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/varun-narayan-jain-b45697256/",
+    "leetcode": "https://leetcode.com/u/Varun_Narayan_Jain/",
+    "portfolio": ""
+  }
+}
