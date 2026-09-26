@@ -22,8 +22,10 @@
 <a href="https://www.linkedin.com/in/varun-narayan-jain-b45697256/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
 <a href="mailto:varunnarayanjaincorporate@gmail.com"><img src="https://img.shields.io/badge/Email-B23A2E?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
 <a href="https://leetcode.com/u/Varun_Narayan_Jain/"><img src="https://img.shields.io/badge/LeetCode-B07A16?style=for-the-badge&logo=leetcode&logoColor=white" alt="LeetCode"></a>
-<!-- PORTFOLIO: add the badge here once the site is deployed. Left out on purpose --
-     a dead link is worse than a missing one, and recruiters click.
+<a href="assets/Varun-Narayan-Jain-Resume.pdf"><img src="https://img.shields.io/badge/R%C3%A9sum%C3%A9-2E6E4E?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Résumé"></a>
+<!-- PORTFOLIO: uncomment and fill in the URL once the site is deployed.
+     Left out on purpose: a dead link is worse than a missing one.
+     Keep this block free of nested comment markers.
 <a href="https://REPLACE-ME"><img src="https://img.shields.io/badge/Portfolio-1F2328?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio"></a>
 -->
 
@@ -88,7 +90,7 @@ the only reason this section is worth reading.
 <tr>
 <td width="33%" valign="top">
 
-<img src="assets/photos/gem-telegram.png" alt="Telegram alerts from GeMTenderBot announcing tender matches">
+<img src="assets/cards/gem-telegram.png" alt="Telegram alerts from GeMTenderBot announcing tender matches">
 
 **[GeM Tender Automation](https://github.com/VarunNarayanJain/Tender-Automation)**
 `live`
@@ -103,7 +105,7 @@ from a live procurement workflow.
 </td>
 <td width="33%" valign="top">
 
-<img src="assets/photos/retail-heatmap.png" alt="Gaussian footfall heatmap over a store floor plan">
+<img src="assets/cards/retail-heatmap.png" alt="Gaussian footfall heatmap over a store floor plan">
 
 **[Smart Retail Analytics](https://github.com/VarunNarayanJain/Smart-Retail-Analytics-using-Computer-Vision)**
 `5.30 fps`
@@ -117,7 +119,7 @@ paired with SORT tracking behind a React and Vite dashboard.
 </td>
 <td width="33%" valign="top">
 
-<img src="assets/photos/aews-dashboard.png" alt="Academic early-warning dashboard showing student risk tiers">
+<img src="assets/cards/aews-dashboard.png" alt="Academic early-warning dashboard showing student risk tiers">
 
 **[Academic Early Warning](https://github.com/VarunNarayanJain/Emerging-Tools-Technologies)**
 [`live`](https://emerging-tools-technologies.vercel.app/)
@@ -137,8 +139,8 @@ retrieves per-student context and drafts intervention plans for counsellors.
 <!-- ============================================================================
      /traces is written and ready, but commented out on purpose.
 
-     This account is the personal one. The day-job pull requests -- the 200+
-     reviewed and merged -- are on a separate account tied to the company
+     This account is the personal one. The day-job pull requests — the 200+
+     reviewed and merged — are on a separate account tied to the company
      email, so they earn no contribution credit here. GitHub attributes 28
      contributions to this account in the last year.
 
@@ -147,10 +149,11 @@ retrieves per-student context and drafts intervention plans for counsellors.
      the profile leads with receipts that are true regardless of which account
      committed: the metrics panels, the changelog, the deployments.
 
-     The snake below is commented out for the same reason -- it animates this
+     The snake below is commented out for the same reason — it animates this
      graph, so it would animate an empty grid. .github/workflows/snake.yml is
      ready and set to manual; run it from the Actions tab when this is worth
-     switching on.
+     switching on — it writes snake.svg and snake-dark.svg to the output
+     branch, which is where the markup below points.
 
      To switch both on later: delete this comment and the two markers below,
      then run `python scripts/render.py`.
@@ -169,7 +172,6 @@ retrieves per-student context and drafts intervention plans for counsellors.
 
 <br><br>
 
-<!-- Regenerated nightly by .github/workflows/snake.yml into the output branch -->
 <picture>
   <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/VarunNarayanJain/VarunNarayanJain/output/snake-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/VarunNarayanJain/VarunNarayanJain/output/snake.svg">
